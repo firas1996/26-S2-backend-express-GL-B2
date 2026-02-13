@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 const validator = require("validator");
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   name: {
     type: String,
     required: [true, "The name is required !!!"],
@@ -33,8 +33,21 @@ const userSchema = new mongoose.Schema({
       message: "Pass and cPass does not match !!!",
     },
   },
+  role: {
+    type: String,
+    enum: ["admin", "user"],
+    default: "user",
+  },
+  created_at: {
+    type: Date,
+    default: Date.now(),
+  },
+  pass_changed_at: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
-const User = mongoose.model("User", userSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
