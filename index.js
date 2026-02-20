@@ -14,8 +14,8 @@ mongoose
   });
 
 const app = express();
-
-app.use(userRoutes);
+app.use(express.json());
+app.use("/users", userRoutes);
 
 const port = 1122;
 
