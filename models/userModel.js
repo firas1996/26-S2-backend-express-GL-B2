@@ -27,7 +27,7 @@ const userSchema = new Schema({
     required: [true, "The password is required !!!"],
     minlength: 8,
     validate: {
-      validator: (confirmPass) => {
+      validator: function (confirmPass) {
         return confirmPass === this.password;
       },
       message: "Pass and cPass does not match !!!",
