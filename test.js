@@ -23,3 +23,9 @@ let str2 = {
 };
 
 console.log(typeof tab[2]);
+
+const max = (a, b, c) => {
+  return Math.max(a, b, c);
+};
+
+console.log(max(2, 7, 6));
